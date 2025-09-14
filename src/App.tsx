@@ -70,36 +70,10 @@ function App() {
 
   // Inicializar dados de exemplo
   useEffect(() => {
-    const produtosIniciais: Produto[] = [
-      {
-        id: '1',
-        nome: 'Website Básico',
-        valorBase: 2500,
-        descricao: 'Site institucional com até 5 páginas',
-        opcionais: [
-          { id: '1', nome: 'SEO Básico', valorAdicional: 500 },
-          { id: '2', nome: 'Blog integrado', valorAdicional: 800 },
-          { id: '3', nome: 'Formulário de contato avançado', valorAdicional: 300 }
-        ]
-      },
-      {
-        id: '2',
-        nome: 'E-commerce',
-        valorBase: 5000,
-        descricao: 'Loja virtual completa',
-        opcionais: [
-          { id: '4', nome: 'Gateway de pagamento', valorAdicional: 1000 },
-          { id: '5', nome: 'Sistema de cupons', valorAdicional: 600 },
-          { id: '6', nome: 'Relatórios avançados', valorAdicional: 1200 }
-        ]
-      }
-    ];
+    const produtosIniciais: Produto[] = [];
     setProdutos(produtosIniciais);
 
-    const cidadesIniciais: Cidade[] = [
-      { id: '1', nome: 'São Paulo', estado: 'SP', createdAt: new Date() },
-      { id: '2', nome: 'Rio de Janeiro', estado: 'RJ', createdAt: new Date() }
-    ];
+    const cidadesIniciais: Cidade[] = [];
     setCidades(cidadesIniciais);
   }, []);
 
