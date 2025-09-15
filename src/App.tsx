@@ -15,6 +15,7 @@ interface Cliente {
   nome: string;
   email: string;
   telefone: string;
+  endereco: string;
   cidade_id: string;
   created_at: string;
 }
@@ -255,7 +256,7 @@ function App() {
 
   // Componente Modal Cliente
   const ClienteModal = () => {
-    const [formData, setFormData] = useState({ nome: '', email: '', telefone: '' });
+    const [formData, setFormData] = useState({ nome: '', email: '', telefone: '', endereco: '', cidade_id: '' });
     const [saving, setSaving] = useState(false);
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -273,7 +274,7 @@ function App() {
         
         setClientes([...clientes, data]);
         setShowClienteModal(false);
-        setFormData({ nome: '', email: '', telefone: '' });
+        setFormData({ nome: '', email: '', telefone: '', endereco: '', cidade_id: '' });
       } catch (err) {
         setError('Erro ao salvar cliente');
         console.error('Erro:', err);
@@ -298,6 +299,15 @@ function App() {
               />
             </div>
             <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Endereço</label>
+              <input
+                type="text"
+                value={formData.endereco}
+                onChange={(e) => setFormData({...formData, endereco: e.target.value})}
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            {/*<div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
               <input
                 type="email"
@@ -316,7 +326,7 @@ function App() {
                 onChange={(e) => setFormData({...formData, telefone: e.target.value})}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
-            </div>
+            </div>*/}
             <div className="flex justify-end space-x-3">
               <button
                 type="button"
